@@ -201,11 +201,10 @@ void HitboxOverlay::DrawCollisionAreas(const CharData* charObj, const ImVec2 pla
 		pointD = CalculateScreenPosition(pointD);
 
 		//Fixes aspect ratio when the game is in fullscreen/borderless
-		ImGuiIO& io = ImGui::GetIO();
-		float displayRatio = io.DisplaySize.x / io.DisplaySize.y;
-		float aspectRatio = 5.0f / 3.0f;
-
 		if (*this->aspectRatioAddress == 1) {
+			ImGuiIO& io = ImGui::GetIO();
+			float displayRatio = io.DisplaySize.x / io.DisplaySize.y;
+			float aspectRatio = 5.0f / 3.0f;
 			if (displayRatio > aspectRatio) {
 				float scaling = (io.DisplaySize.x / (io.DisplaySize.y * aspectRatio));
 				float offset = (io.DisplaySize.x - io.DisplaySize.y * aspectRatio) / 2;
